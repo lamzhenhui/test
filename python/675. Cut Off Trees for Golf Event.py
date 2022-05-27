@@ -16,8 +16,6 @@ class Solution:
                 for (x,y) in [(i_+1, j_),(i_-1, j_),(i_, j_+1),(i_, j_-1)]:
                     if 0 <= x < m  and 0 <= y < n and (x,y) not in visted and  forest[x][y]:
                         visted.add((x,y))
-                        if x == i and y == j:
-                            return d + 1
 
                         q.append((d+1,x,y))
             return -1
@@ -25,7 +23,7 @@ class Solution:
 
 
         # sorted tress
-        trees = sorted((h,i,j)for i,row in enumerate(forest) for j,h in enumerate(row) if h >0)
+        trees = sorted((h,i,j)for i,row in enumerate(forest) for j,h in enumerate(row) if h >1)
         sx= sy= d =0
         for _ ,i,j in trees:
             d_ = bfs(sx,sy,i,j)
