@@ -23,7 +23,7 @@ public class TransferValueDemo {
         str = "z4" ;
     };
     public static void main(String[] args) {
-        TransferValueDemo transferValueDemo = transferValueDemo;
+        TransferValueDemo transferValueDemo = new TransferValueDemo();
         int age = 13;
         transferValueDemo.ChangeValue1(age);
         System.out.println("age" + age);
