@@ -4,12 +4,14 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 
+
 // enum CountryEnum{
 //     COUNTRY_ENUM(Integer code, String name){
 //
 //     }
 //
 //}
+
 public class CountDownLatchDemo {
     private static  CountDownLatch countDownLatch = new CountDownLatch(4);
     private static  CyclicBarrier cyclicBarrier = new CyclicBarrier(4,()->{
@@ -41,6 +43,8 @@ public class CountDownLatchDemo {
         for(int i=1;i<=4;i++){
             new Thread(()->{
                 System.out.println("第" + Thread.currentThread().getName() + "位同学离开教室");
+
+
                 try {
                     cyclicBarrier.await();
                 } catch (InterruptedException e) {
@@ -48,7 +52,7 @@ public class CountDownLatchDemo {
                 } catch (BrokenBarrierException e) {
                     e.printStackTrace();
                 }
-            },String.valueOf(i)).start();
+            },CountryEnum.forEach(i).getValue()).start();
         }
 //        System.out.println("班长可以锁门");
     }
