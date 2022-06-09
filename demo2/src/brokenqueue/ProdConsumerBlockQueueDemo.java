@@ -49,7 +49,6 @@ class ShardData{
             }else {
                 System.out.println("查询队列" + return_value + "成功");
             }
-
         }
     }
 
