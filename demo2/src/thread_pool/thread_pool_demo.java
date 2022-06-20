@@ -29,8 +29,7 @@ public class thread_pool_demo {
         }finally {
            thread_pool3.shutdown();
        }
-
-
+        System.out.println(Runtime.getRuntime().availableProcessors());
 
 
     }
