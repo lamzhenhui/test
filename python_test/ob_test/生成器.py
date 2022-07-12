@@ -1,8 +1,8 @@
 
 if __name__ == '__main__':
-    import os
     import sys
-    a = [1,2,3]
-    b= (1,2,3)
+    a = [item for item in range(10000)]
+    b= (item for item in range(10000))
+    print(type(b))
     print(sys.getsizeof(a))
     print(sys.getsizeof(b))
