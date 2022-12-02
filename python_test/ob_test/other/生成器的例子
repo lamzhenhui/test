@@ -1,0 +1,24 @@
+def mylist(num):
+    now  = 0
+    while now < num:
+        print("now2= " , now)
+        # 为什么这里不是返回3
+        val = (yield now)
+        # print(type(val))        
+        # print(val)
+
+        now = now +1 if val is None else val
+        print("now= " , now)
+
+# if __name__ == "__main__":
+c = mylist(6)
+print(c.next())
+# print(">>")
+print(c.next())
+print(">>")
+c.send(3)
+print("<<")
+print(c.next())
+print(c.next())
+print(c.next())
+print(c.next())
