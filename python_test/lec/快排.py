@@ -15,23 +15,22 @@ class Solution(object):
             self.quick_sort(nums, p+1, r)  # 这里需要注意右边的边界不能是len(nums）
 
     def find_pivot(self, nums, l, r):
-
-        i = random.randint(
-            range(len(nums))[l], range(len(nums))[r])
+        i = random.randint(l, r)
         self.swap(nums, i, r)
         q = nums[r]
         index = l-1
         for p_index in range(l, r):
             if nums[p_index] <= q:  # 需要注意这里如果对比的数相同， 也需要往前边挪
                 index += 1
-                self.swap(nums, index, p_index)
+                self.swap(nums, index, p_index)  # 如何避免相同的数字产生的内存消耗
         self.swap(nums, index+1, r)
         return index+1
 
     def swap(self, nums, i, r):
-        right = nums[r]
-        rang = nums[i]
-        nums[r], nums[i] = rang, right
+        if nums[r] != nums[i]:
+            temp = nums[r]
+            nums[r] = nums[i]
+            nums[i] = temp
 
 
 if __name__ == "__main__":

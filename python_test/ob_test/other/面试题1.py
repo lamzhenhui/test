@@ -22,6 +22,7 @@ def function():
 
 
 function()
+raise Exception
 """
 ***题1
 decorator1 start

@@ -1,0 +1,20 @@
+from multiprocessing import Process, Semaphore
+import os
+
+
+def worker(sem):
+    sem.acquire()  # 等待信号量
+    print('Process %d is working.' % (os.getpid()))
+    sem.release()  # 释放信号量
+
+
+if __name__ == '__main__':
+    sem = Semaphore(1)  # 创建信号量对象
+    processes = []
+    for i in range(5):
+        p = Process(target=worker, args=(sem,))
+        processes.append(p)
+        p.start()
+
+    for p in processes:
+        p.join()

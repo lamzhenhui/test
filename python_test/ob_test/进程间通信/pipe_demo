@@ -1,0 +1,21 @@
+from multiprocessing import Process, Pipe
+
+# 子进程代码
+
+
+def child(conn):
+    conn.send("Hello from child process!")
+    message = conn.recv()
+    print(f"Child process received message: {message}")
+    conn.close()
+
+
+# 父进程代码
+if __name__ == '__main__':
+    parent_conn, child_conn = Pipe()
+    p = Process(target=child, args=(child_conn,))
+    p.start()
+    message = parent_conn.recv()
+    print(f"Parent process received message: {message}")
+    parent_conn.send("Hello from parent process!")
+    p.join()

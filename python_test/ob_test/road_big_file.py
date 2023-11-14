@@ -5,14 +5,15 @@ import sys
 
 def func():
     i = list()
-    with open("lable.txt","r") as f:
+    with open("/Users/meta/lam/test/python_test/ob_test/lable.txt", "r") as f:
         while f.readlines(6000):
             print(len(f.readlines(6000)))
             yield f.readlines(6000)
 
+
 def writer_func():
-    fa = open('lable.txt')
-    with open('lable.txt',"a") as f:
+    fa = open('/Users/meta/lam/test/python_test/ob_test/lable.txt')
+    with open('/Users/meta/lam/test/python_test/ob_test/lable.txt', "a") as f:
         for item in range(10000000):
             f.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n")
             f.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n")
@@ -20,10 +21,8 @@ def writer_func():
             f.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n")
             f.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n")
             f.write("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n")
-    print(sys.getsizeof("lable.txt"))
-    print(os.path.getsize("lable.txt"))
-
-
+    print(sys.getsizeof("/Users/meta/lam/test/python_test/ob_test/lable.txt"))
+    print(os.path.getsize("/Users/meta/lam/test/python_test/ob_test/lable.txt"))
 
 
 if __name__ == '__main__':

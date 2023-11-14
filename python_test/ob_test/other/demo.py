@@ -1,6 +1,29 @@
-a = {1: 2, 2: 3}
-for k, v in a.items():
-    if k == 1:
-        a[3] = 4
-print(a)
-hash("a")
+import functools
+
+
+
+class decorater(object):
+    def __init__(self,func) -> None:
+        self.func = func
+
+    def __call__(self, *args: str, **kwds: str):
+        print("warper")
+        self.func(*args)
+        
+
+
+
+@decorater
+def func1(a, b):
+    print(a, b)
+
+
+if __name__ == "__main__":
+    a = "hello"
+    b = "world"
+    decorater(func1(a, b))
+    # print(func1.__name__)
+    # print(help(func1))
+
+
+ 
